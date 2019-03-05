@@ -10,9 +10,13 @@ function vPaneHeaderDirective () {
     restrict: 'E',
     require: ['^vPane', '^vAccordion'],
     transclude: true,
-    template: '<div ng-transclude></div>',
     scope: {},
-    link: function (scope, iElement, iAttrs, ctrls) {
+    link: function (scope, iElement, iAttrs, ctrls, transclude) {
+
+      transclude(function(transcludeEl) {
+        iElement.append(transcludeEl);
+      });
+
       iAttrs.$set('role', 'tab');
       iAttrs.$set('tabindex', '0');
 

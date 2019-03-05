@@ -70,7 +70,7 @@ v-pane-content {
   -webkit-transform: translate3d(0, 30px, 0);
           transform: translate3d(0, 30px, 0);
   -webkit-transition: all 0.5s;
-          transition: all 0.5s; }
+  transition: all 0.5s; }
 
 .vAccordion--default v-pane {
   overflow: hidden; }
@@ -95,7 +95,7 @@ v-pane-content {
   margin-bottom: 20px;
   border-bottom: 2px solid #D8D8D8;
   -webkit-transition: all 0.25s;
-          transition: all 0.25s; }
+  transition: all 0.25s; }
   .vAccordion--default v-pane-header::after, .vAccordion--default v-pane-header::before {
     content: '';
     display: block;
@@ -109,7 +109,7 @@ v-pane-content {
             transform-origin: 50% 50%;
     will-change: transform;
     -webkit-transition: all 0.25s;
-            transition: all 0.25s; }
+    transition: all 0.25s; }
   .vAccordion--default v-pane-header::before {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg); }

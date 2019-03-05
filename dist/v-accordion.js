@@ -385,6 +385,7 @@ function vPaneDirective ($timeout, $animate, accordionConfig) {
       id: '@?'
     },
     link: function (scope, iElement, iAttrs, accordionCtrl, transclude) {
+
       transclude(scope.$parent.$new(), function (clone, transclusionScope) {
         transclusionScope.$pane = scope.internalControl;
         if (scope.id) { transclusionScope.$pane.id = scope.id; }
@@ -557,9 +558,13 @@ function vPaneContentDirective () {
     restrict: 'E',
     require: '^vPane',
     transclude: true,
-    template: '<div ng-transclude></div>',
     scope: {},
-    link: function (scope, iElement, iAttrs) {
+    link: function (scope, iElement, iAttrs, ctrls, transclude) {
+
+      transclude(function(transcludeEl) {
+        iElement.append(transcludeEl);
+      });
+
       iAttrs.$set('role', 'tabpanel');
       iAttrs.$set('aria-hidden', 'true');
     }
@@ -578,9 +583,13 @@ function vPaneHeaderDirective () {
     restrict: 'E',
     require: ['^vPane', '^vAccordion'],
     transclude: true,
-    template: '<div ng-transclude></div>',
     scope: {},
-    link: function (scope, iElement, iAttrs, ctrls) {
+    link: function (scope, iElement, iAttrs, ctrls, transclude) {
+
+      transclude(function(transcludeEl) {
+        iElement.append(transcludeEl);
+      });
+
       iAttrs.$set('role', 'tab');
       iAttrs.$set('tabindex', '0');
 
